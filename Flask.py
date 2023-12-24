@@ -45,7 +45,6 @@ def handle_action():
                 amount = int(request.form.get('amount'))
                 # Process deposit
                 if usr_action == 'deposit':
-                    print(bm.deposit(account_number, pin_code, amount))
                     if bm.deposit(account_number, pin_code, amount):
                         message = f"you have successfully deposited {amount} ILS into your account: {account_number}"
                     else:
