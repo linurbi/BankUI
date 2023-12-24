@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Menu</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #d5f4e6;
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+        }
+        .li {
+            width: 20%;
+            background-color: #e7e7e7;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .li:hover {
+            background-color: #A7FFEB;
+        }
+        /* Other styles remain the same */
+         h2 {
+            text-align: left;
+            color: #333;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        h1 {
+          background: linear-gradient(to right,
+                red,
+                orange,
+                yellow,
+                green,
+                blue,
+                indigo,
+                violet);
+            color: white; /* For better text visibility */
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <a href='/index'> Back to main </a>
+    <h1> Bank </h1>
+    <h2>Details</h2>
+     <script>
+        function setAction(actionType) {
+            document.getElementById('formAction').value = actionType;
+        }
+    </script>
+    <form method = POST action="/handle_action">
+        <input type="text" name="holder_name" placeholder="Full Name" required><br><br>
+        <input type="email" name="email" placeholder="Email" required><br><br>
+        <input type="text" name="address" placeholder="Address" required><br><br>
+        <input type="tel" name="phone" placeholder="Phone Number" required><br><br>
+        <input type="date" name="birthday" placeholder="Birthday" required><br><br>
+        <input type="hidden" name="action" id="formAction" value="">
+        <button type="submit" onclick="setAction('new')">Create!</button>
+    </form>
+</body>
+</html>

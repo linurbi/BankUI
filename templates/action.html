@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Menu</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #d5f4e6;
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+        }
+        .li {
+            width: 20%;
+            background-color: #e7e7e7;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .li:hover {
+            background-color: #A7FFEB;
+        }
+        /* Other styles remain the same */
+         h2 {
+            text-align: left;
+            color: #333;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        h1 {
+          background: linear-gradient(to right,
+                red,
+                orange,
+                yellow,
+                green,
+                blue,
+                indigo,
+                violet);
+            color: white; /* For better text visibility */
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <a href='/index'> Back to main </a>
+    <h1> Bank </h1>
+    <h2>Actions</h2>
+    <script>
+        function setAction(actionType) {
+            document.getElementById('formAction').value = actionType;
+        }
+    </script>
+    <form method="POST" action="/handle_action">
+        <input type="number" name="account_number" placeholder="Account Number" required><br><br>
+        <input type="password" name="pin_code" placeholder="PIN Code" required><br><br>
+        {% if action in ('deposit','withdraw') %}
+            <input type="number" name="amount" placeholder="Amount" min="1" required><br><br>
+        {% endif %}
+        <input type="hidden" name="action" id="formAction" value="">
+         {% if action == 'deposit' %}
+            <button type="submit" onclick="setAction('deposit')">Deposit!</button>
+        {% elif action == 'withdraw' %}
+            <button type="submit" onclick="setAction('withdraw')">Withdraw!</button>
+        {% elif action == 'balance' %}
+            <button type="submit" onclick="setAction('balance')">Balance!</button>
+        {% else %}
+             <button type="submit" onclick="setAction('close')">Close!</button>
+        {% endif %}
+    </form>
+</body>
+</html>

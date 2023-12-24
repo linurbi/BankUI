@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Menu</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #d5f4e6;
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+        }
+        .li {
+            width: 20%;
+            background-color: #e7e7e7;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .li:hover {
+            background-color: #A7FFEB;
+        }
+        /* Other styles remain the same */
+         h2 {
+            text-align: left;
+            color: #333;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        h1 {
+          background: linear-gradient(to right,
+                red,
+                orange,
+                yellow,
+                green,
+                blue,
+                indigo,
+                violet);
+            color: white; /* For better text visibility */
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1> Bank </h1>
+    <h2>Bank Services Menu</h2> <!-- Title for the menu -->
+     <form action="/new_account" method="get">
+        <button type="submit" class="li" name="new_account">Create a new Bank account</button><br><br>
+    </form>
+    <form action="/existing_account" method="get">
+        <button type="submit" class="li" name="existing_account">Existing account</button>
+    </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+    <a href='/about'> About </a>
+</body>
+</html>
